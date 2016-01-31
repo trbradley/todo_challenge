@@ -13,19 +13,17 @@
 
   <body ng-controller="TodoListController as todoCtrl">
     <div>
-
-      <form class="form-horizontal">
-        <input type="text" >
-        <button class="btn">Add Item</button>
+      <form>
+        <input type="text" ng-model="todoCtrl.newTask">
+        <button class="btn" ng-click="todoCtrl.addTask()">Add Task</button>
       </form>
-
-      <ul class="list-group">
-        <li class="list-group-item">
-        </li>
-        <li class="list-group-item">
-        </li>
-      </ul>
-
     </div>
+
+    <div>
+      <ul>
+        <li ng-repeat="tasks in todoCtrl.taskList"> {{tasks.text}} </li>
+      </ul>
+    </div>
+
   </body>
 </html>
