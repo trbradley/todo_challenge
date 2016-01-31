@@ -12,17 +12,28 @@
   </head>
 
   <body ng-controller="TodoListController as todoCtrl">
+
+    <h1>Todo List</h1>
+
     <div>
       <form>
-        <input type="text" ng-model="todoCtrl.newTask">
+        <input type="text" ng-model="todoCtrl.newTask" required>
         <button class="btn" ng-click="todoCtrl.addTask()">Add Task</button>
       </form>
     </div>
 
     <div>
       <ul>
-        <li ng-repeat="tasks in todoCtrl.taskList"> {{tasks.text}} </li>
+        <li ng-repeat="task in todoCtrl.taskList">
+          <span ng-hide="editing" ng-click="editing = true">{{task.text}}</span>
+          <form ng-show="editing" ng-submit="editing = false">
+            <input type="text" ng-model="task.text" required>
+            <button class="btn" type="submit">Save</button>
+          </form>
+        </li>
       </ul>
+
+      <p>Click on any task to edit it.</p>
     </div>
 
   </body>
