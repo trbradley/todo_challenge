@@ -14,39 +14,44 @@
   </head>
 
   <body ng-controller="TodoListController as todoCtrl">
+    <div class="left">
+      
+    </div>
+    <div class="right">
 
-    <h1>Todo List</h1>
-    <br>
+      <h1>Todo List</h1>
+      <br>
 
-    <form ng-submit="todoCtrl.addTask()">
-      <div class="group">
-        <input type="text" ng-model="todoCtrl.newTask" required>
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Enter Task</label>
-        <button class="btn" type="submit">Add Task</button>
-      </div>
-    </form>
+      <form ng-submit="todoCtrl.addTask()">
+        <div class="group">
+          <input type="text" ng-model="todoCtrl.newTask" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Enter Task</label>
+          <button class="btn" type="submit">Add Task</button>
+        </div>
+      </form>
 
-    <ul>
-      <li ng-repeat="task in todoCtrl.taskList">
-        <section ng-hide="task.beingEdited">
-          <span ng-click="todoCtrl.editTask(task)" class="completed-{{task.completed}}">{{task.text}}</span>
-          <button class="btn" ng-click="todoCtrl.taskCompleted(task)">Completed</button>
-        </section>
+      <ul>
+        <li ng-repeat="task in todoCtrl.taskList">
+          <section ng-hide="task.beingEdited">
+            <span ng-click="todoCtrl.editTask(task)" class="completed-{{task.completed}}">{{task.text}}</span>
+            <button class="btn" ng-click="todoCtrl.taskCompleted(task)">Completed</button>
+          </section>
 
-        <form ng-show="task.beingEdited" ng-submit="todoCtrl.editTask(task)">
-          <input type="text" ng-model="task.text" required>
-          <button class="btn" type="submit">Save Changes</button>
-        </form>
-      </li>
-    </ul>
+          <form ng-show="task.beingEdited" ng-submit="todoCtrl.editTask(task)">
+            <input type="text" ng-model="task.text" required>
+            <button class="btn" type="submit">Save Changes</button>
+          </form>
+        </li>
+      </ul>
 
-    <p id="instructions">Click on any task to edit it.</p>
+      <p id="instructions">Click on any task to edit it.</p>
 
-    <section>
-      <button class="btn" ng-click="todoCtrl.clearComplete()">Clear Completed</button>
-    </section>
+      <section>
+        <button class="btn" ng-click="todoCtrl.clearComplete()">Clear Completed</button>
+      </section>
 
+    </div>
   </body>
 </html>
