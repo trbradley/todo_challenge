@@ -18,4 +18,12 @@ describe('todoListController', function() {
     });
   });
 
+  describe('#editTask', function() {
+    it('sets the task state to being edited', function() {
+      var task = {"text": "This task is going to be edited"}
+      ctrl.editTask(task);
+      expect(task.beingEdited).toBe(true);
+    });
+  })
+
 });

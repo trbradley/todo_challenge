@@ -16,19 +16,19 @@
     <h1>Todo List</h1>
 
     <div>
-      <form>
+      <form ng-submit="todoCtrl.addTask()">
         <input type="text" ng-model="todoCtrl.newTask" required>
-        <button class="btn" ng-click="todoCtrl.addTask()">Add Task</button>
+        <button class="btn" type="submit">Add Task</button>
       </form>
     </div>
 
     <div>
       <ul>
         <li ng-repeat="task in todoCtrl.taskList">
-          <span ng-hide="editing" ng-click="editing = true">{{task.text}}</span>
-          <form ng-show="editing" ng-submit="editing = false">
+          <span ng-hide="task.beingEdited" ng-click="todoCtrl.editTask(task)">{{task.text}}</span>
+          <form ng-show="task.beingEdited" ng-submit="todoCtrl.editTask(task)">
             <input type="text" ng-model="task.text" required>
-            <button class="btn" type="submit">Save</button>
+            <button class="btn" type="submit">Save Changes</button>
           </form>
         </li>
       </ul>

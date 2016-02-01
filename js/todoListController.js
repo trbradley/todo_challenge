@@ -7,4 +7,8 @@ todoList.controller('TodoListController', [function() {
     self.newTask = '';
     console.log(self.taskList)
   };
+
+  self.editTask = function(task) {
+     task.beingEdited = !task.beingEdited;
+  };
 }]);
