@@ -27,4 +27,12 @@ describe('Todo List', function() {
     element(by.buttonText('Save Changes')).click();
     expect(element(by.tagName('span')).getText()).toEqual('Learn AngularJS. Or not.');
   });
+
+  it('crosses out the task when the done button is clicked', function() {
+    browser.get('http://localhost:8080');
+    element(by.model("todoCtrl.newTask")).sendKeys('Learn AngularJS');
+    element(by.buttonText("Add Task")).click();
+    element(by.buttonText("Completed")).click();
+    expect(element(by.tagName('span')).getAttribute('class')).toMatch('completed-true')
+  });
 });

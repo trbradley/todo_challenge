@@ -11,4 +11,14 @@ todoList.controller('TodoListController', [function() {
   self.editTask = function(task) {
      task.beingEdited = !task.beingEdited;
   };
+
+  self.taskCompleted = function(task) {
+    task.completed = !task.completed;
+  };
+
+  self.clearComplete = function() {
+    self.taskList = self.taskList.filter(function(obj) {
+      return obj.completed === false
+    });
+  };
 }]);
