@@ -34,7 +34,7 @@ describe('todoListController', function() {
   });
 
   it('sets the task state to not completed', function() {
-    var task = {"text": "This task is going to be marked not completed", "completed": false}
+    var task = {"text": "This task is going to be marked not completed", "completed": true}
     ctrl.taskCompleted(task);
     expect(task.completed).toBe(false);
   });
